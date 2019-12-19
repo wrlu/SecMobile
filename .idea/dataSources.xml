@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="secmobile" uuid="8a55f2be-6934-47b2-9d20-445f7292cd56">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\wrlu\OneDrive\Repos\Web\SecMobile\src\main\webapp\WEB-INF\db\secmobile.db</jdbc-url>
+    </data-source>
+  </component>
+</project>

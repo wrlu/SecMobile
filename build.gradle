@@ -19,6 +19,10 @@ repositories {
     jcenter()
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
 dependencies {
 // https://mvnrepository.com/artifact/mysql/mysql-connector-java
 implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
@@ -106,5 +110,6 @@ implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', ve
 implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.8'
 // https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on
 implementation group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.61'
-
+// https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
+implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.28.0'
 }

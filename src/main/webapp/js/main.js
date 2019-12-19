@@ -234,7 +234,7 @@ function getProcessList(client_id, port) {
 }
 
 function monitoringDevice() {
-	if (isMonitoring == true) {
+	if (isMonitoring === true) {
 		$("#resultModalBody").html("已经启动了一项检测，请先中止现有的检测再开始新的检测");
  		$("#resultModal").modal("show");
  		return;
@@ -290,10 +290,10 @@ function refreshFridaLog(port) {
 	$.get("/SecMobile/android/refresh-frida-log", {
 		port: port
 	}, function(result) {
-		if(result.status == 0) {
+		if(result.status === 0) {
 			$("#fridaLogArea").html(result.log);
 		}
-		if (isMonitoring == true) {
+		if (isMonitoring === true) {
 			refreshFridaLog(port);
 		}
 	});

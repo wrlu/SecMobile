@@ -57,7 +57,7 @@ public class AndroidController {
 	@ResponseBody
 	@RequestMapping("/analysis")
 	public Map<String, Object> analysis(HttpServletRequest request, HttpServletResponse response) {
-		Map<String, Object> data=new HashMap<String, Object>();
+		Map<String, Object> data=new HashMap<>();
 		// Windows: file:/C:/******/SecIoT/WebContent/WEB-INF/classes/
 		// *nix: file:/mnt/******/SecIoT/WEB-INF/classes/
 		String path = Thread.currentThread().getContextClassLoader().getResource("").toString();
@@ -161,7 +161,7 @@ public class AndroidController {
 	@RequestMapping("/monitoring")
 	public Map<String, Object> monitoring(MonitoringParameter monitoringParameter,
 			HttpServletRequest request, HttpServletResponse response) { 
-		Map<String, Object> data=new HashMap<String, Object>();
+		Map<String, Object> data=new HashMap<>();
 		try {
 			String result = androidService.monitoringDevice(monitoringParameter);
 			data.put("status", 0);
@@ -196,7 +196,7 @@ public class AndroidController {
 			@RequestParam("clientId") String clientId,
 			@RequestParam("port")  int port,
 			HttpServletRequest request, HttpServletResponse response) {
-		Map<String, Object> data=new HashMap<String, Object>();
+		Map<String, Object> data=new HashMap<>();
 		try {
 			String result = androidService.stopMonitoringDevice(port);
 			data.put("status", 0);
@@ -228,7 +228,7 @@ public class AndroidController {
 	public Map<String, Object> refreshFridaLog(
 			@RequestParam("port") int port, 
 			HttpServletRequest request, HttpServletResponse response) {
-		Map<String, Object> data=new HashMap<String, Object>();
+		Map<String, Object> data=new HashMap<>();
 		String path = Thread.currentThread().getContextClassLoader().getResource("").toString();
 		if (OSUtil.isWindows()) {
 			path = path.replace("file:/", "");
@@ -269,7 +269,7 @@ public class AndroidController {
 			@RequestParam("port") int port,
 			@RequestParam("process") String process,
 			HttpServletRequest request, HttpServletResponse response) { 
-		Map<String, Object> data=new HashMap<String, Object>();
+		Map<String, Object> data=new HashMap<>();
 		String path = Thread.currentThread().getContextClassLoader().getResource("").toString();
 		if (OSUtil.isWindows()) {
 			path = path.replace("file:/", "");

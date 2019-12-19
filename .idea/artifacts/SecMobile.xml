@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="SecMobile">
-    <output-path>$PROJECT_DIR$/out/artifacts/SecMobile</output-path>
+    <output-path>$USER_HOME$/Server/apache-tomcat-9.0.29/webapps/SecMobile</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -62,6 +62,7 @@
           <element id="library" level="project" name="Gradle: commons-collections:commons-collections:3.2.2" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.0" />
           <element id="library" level="project" name="Gradle: org.apache.ant:ant-launcher:1.8.2" />
+          <element id="library" level="project" name="Gradle: org.xerial:sqlite-jdbc:3.28.0" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="SecMobile.main/web/Web" />
