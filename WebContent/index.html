@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>加载中 - SecMobile</title>
+    <title>加载中 - SecIoT</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="/SecMobile/css/dashboard.css" rel="stylesheet">
+    <link href="/SecIoT/css/dashboard.css" rel="stylesheet">
 </head>
 <body>
 <header>
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/SecMobile/?page=main">SecMobile 漏洞检测系统</a>
+	<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/SecIoT/?page=main">SecIoT 漏洞检测系统</a>
 	<ul class="navbar-nav px-3">
-		<li class="nav-item text-nowrap"><a class="nav-link" href="/SecMobile/logout">退出系统</a></li>
+		<li class="nav-item text-nowrap"><a class="nav-link" href="/SecIoT/logout">退出系统</a></li>
   	</ul>
 </nav>
 </header>
@@ -22,21 +22,30 @@
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a id="main_nav" class="nav-link" href="/SecMobile/?page=main">
+            <a id="main_nav" class="nav-link" href="/SecIoT/?page=main">
               主页
             </a>
           </li>
         </ul>
+        <ul class="nav flex-column mb-2">
+         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+         	<span>系统安全</span>
+         </h6>
+         <li class="nav-item">
+            <a id="firmware_nav" class="nav-link" href="/SecIoT/?page=firmware">
+              系统固件静态分析
+            </a>
+         </li>
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>安卓应用安全</span>
           </h6>
           <li class="nav-item">
-            <a id="android-static_nav" class="nav-link" href="/SecMobile/?page=android-static">
+            <a id="android-static_nav" class="nav-link" href="/SecIoT/?page=android-static">
               Android应用静态分析
             </a>
           </li>
           <li class="nav-item">
-            <a id="android-dym_nav" class="nav-link" href="/SecMobile/?page=android-dym">
+            <a id="android-dym_nav" class="nav-link" href="/SecIoT/?page=android-dym">
               Android应用动态分析
             </a>
           </li>
@@ -44,7 +53,7 @@
             <span>苹果应用安全</span>
           </h6>
        	  <li class="nav-item">
-            <a id="ios-static_nav" class="nav-link" href="/SecMobile/?page=ios-static">
+            <a id="ios-static_nav" class="nav-link" href="/SecIoT/?page=ios-static">
               iOS应用静态分析
             </a>
           </li>
@@ -52,8 +61,18 @@
          	<span>辅助功能</span>
          </h6>
          <li class="nav-item">
-            <a id="history_nav" class="nav-link" href="/SecMobile/?page=history">
+            <a id="history_nav" class="nav-link" href="/SecIoT/?page=history">
               安全检测历史
+            </a>
+          </li>
+         <!-- <li class="nav-item">
+            <a id="cve_nav" class="nav-link" href="/SecIoT/?page=cve">
+              第三方库漏洞查询
+            </a>
+          </li> -->
+          <li class="nav-item">
+            <a id="frp_nav" class="nav-link" href="http://localhost:8083/">
+              frps控制台
             </a>
           </li>
         </ul>
@@ -65,9 +84,9 @@
 <footer class="footer">
 	<div class="container">
 		<span class="text-muted">
-			Copyright &copy; 2019 SecMobile Contributors.
+			Copyright &copy; 2019 SecIoT Contributors.
 			<a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">自由软件许可</a> , 
-			<a href="https://github.com/wrlu/SecMobile">贡献源代码</a>
+			<a href="https://gitlab.com/wrlu/seciot-server">贡献源代码</a>
 		</span>
 	</div>
 </footer>
@@ -97,7 +116,7 @@
       <div class="modal-header">
         <h5 class="modal-title">提示</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true"></span>
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div id="resultModalBody" class="modal-body"></div>
@@ -118,6 +137,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
 	crossorigin="anonymous"></script>
-<script src="/SecMobile/js/main.js"></script>
+<script src="/SecIoT/js/main.js"></script>
 </body>
 </html>

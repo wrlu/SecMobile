@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wrlus.seciot.history.model.AndroidHistoryDao;
 import com.wrlus.seciot.history.model.AppleiOSHistoryDao;
+import com.wrlus.seciot.history.model.FwHistoryDao;
 import com.wrlus.seciot.history.model.HistoryDao;
 import com.wrlus.seciot.history.service.HistoryServiceImpl;
 import com.wrlus.seciot.util.exception.ReasonEnum;
@@ -71,6 +72,29 @@ public class HistoryController {
 			data.put("status", 0);
 			data.put("resaon", ReasonEnum.SUCCESS.get());
 			data.put("history_list", historyList);
+		} catch (Exception e) {
+			log.error(e.getClass().getName() + ": " + e.getLocalizedMessage());
+			if (log.isDebugEnabled()) {
+				e.printStackTrace();
+			}
+			data.put("status", -1);
+			data.put("reason", ReasonEnum.INVALID_PARAM.get());
+		}
+		return data;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/getFwHistoryById")
+	public Map<String, Object> getFwHistoryById(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> data = new HashMap<>();
+		try {
+			FwHistoryDao history = historyService.getFwHistoryById(id).get(0);
+			data.put("status", 0);
+			data.put("reason", ReasonEnum.SUCCESS.get());
+			data.put("fw_info", history.getFwinfoRaw());
+			data.put("fw_lib", history.getFwlibRaw());
+			data.put("fw_lib_risk", history.getFwlibriskRaw());
+			data.put("fw_platform_risk", history.getFwplatformriskRaw());
 		} catch (Exception e) {
 			log.error(e.getClass().getName() + ": " + e.getLocalizedMessage());
 			if (log.isDebugEnabled()) {
@@ -152,7 +176,9 @@ public class HistoryController {
 		try {
 			HistoryDao history = historyService.getHistoryById(id).get(0);
 			String type = history.getType();
-			if (type.equals("android-static")) {
+			if (type.equals("firmware-static")) {
+				historyService.deleteFwHistory(history.getDetailid());
+			} else if (type.equals("android-static")) {
 				historyService.deleteAndroidHistory(history.getDetailid());
 			} else if (type.equals("ios-static")) {
 				historyService.deleteAppleiOSHistory(history.getDetailid());

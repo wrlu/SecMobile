@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.wrlus.seciot.history.dao.HistoryMapper;
 import com.wrlus.seciot.history.model.AndroidHistoryDao;
 import com.wrlus.seciot.history.model.AppleiOSHistoryDao;
+import com.wrlus.seciot.history.model.FwHistoryDao;
 import com.wrlus.seciot.history.model.HistoryDao;
 import com.wrlus.seciot.waf.XSSProtect;
 
@@ -33,6 +34,11 @@ public class HistoryServiceImpl implements HistoryService {
 	}
 
 	@Override
+	public List<FwHistoryDao> getFwHistoryById(String id) {
+		return dao.getFwHistoryById(id);
+	}
+
+	@Override
 	public List<AndroidHistoryDao> getAndroidHistoryById(String id) {
 		return dao.getAndroidHistoryById(id);
 	}
@@ -45,6 +51,11 @@ public class HistoryServiceImpl implements HistoryService {
 	@Override
 	public int addHistory(HistoryDao history) {
 		return dao.addHistory(history);
+	}
+
+	@Override
+	public int addFwHistory(FwHistoryDao fwHistory) {
+		return dao.addFwHistory(fwHistory);
 	}
 
 	@Override
@@ -65,6 +76,11 @@ public class HistoryServiceImpl implements HistoryService {
 	@Override
 	public int deleteHistory(String id) {
 		return dao.deleteHistory(id);
+	}
+
+	@Override
+	public int deleteFwHistory(String id) {
+		return dao.deleteFwHistory(id);
 	}
 
 	@Override

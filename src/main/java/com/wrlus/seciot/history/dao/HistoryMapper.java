@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.wrlus.seciot.history.model.AndroidHistoryDao;
 import com.wrlus.seciot.history.model.AppleiOSHistoryDao;
+import com.wrlus.seciot.history.model.FwHistoryDao;
 import com.wrlus.seciot.history.model.HistoryDao;
 
 @Repository
@@ -21,12 +22,16 @@ public interface HistoryMapper {
 	public List<HistoryDao> getHistoryById(@Param("id") String id);
 	@Select("select * from history where type = #{type};")
 	public List<HistoryDao> getHistoryByType(@Param("type") String type);
+	@Select("select * from history_fw_static where id = #{id};")
+	public List<FwHistoryDao> getFwHistoryById(@Param("id") String id);
 	@Select("select * from history_android_static where id = #{id};")
 	public List<AndroidHistoryDao> getAndroidHistoryById(@Param("id") String id);
 	@Select("select * from history_ios_static where id = #{id};")
 	public List<AppleiOSHistoryDao> getAppleiOSHistoryById(@Param("id") String id);
 	@Insert("insert into history values (#{id}, #{name}, #{type}, #{target}, #{user}, #{date}, #{detailid});")
 	public int addHistory(HistoryDao history);
+	@Insert("insert into history_fw_static values (#{id}, #{fwinfo}, #{fwlib}, #{fwlibrisk}, #{fwplatformrisk});")
+	public int addFwHistory(FwHistoryDao fwHistory);
 	@Insert("insert into history_android_static values (#{id}, #{apkinfo}, #{apkpermission}, #{apkplatformrisk});")
 	public int addAndroidHistory(AndroidHistoryDao androidHistory);
 	@Insert("insert into history_ios_static values (#{id}, #{ipainfo}, #{ipapermission}, #{ipaplatformrisk});")
@@ -35,6 +40,8 @@ public interface HistoryMapper {
 	public int updateHistoryName(@Param("id") String id, @Param("name") String name);
 	@Delete("delete from history where id = #{id};")
 	public int deleteHistory(@Param("id") String id);
+	@Delete("delete from history_fw_static where id = #{id};")
+	public int deleteFwHistory(@Param("id") String id);
 	@Delete("delete from history_android_static where id = #{id};")
 	public int deleteAndroidHistory(@Param("id") String id);
 	@Delete("delete from history_ios_static where id = #{id};")
