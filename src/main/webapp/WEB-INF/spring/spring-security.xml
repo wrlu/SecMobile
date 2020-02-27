@@ -36,12 +36,12 @@
     <authentication-manager>
     	<!-- 配置认证提供者为JDBC，并指明数据源的bean和密码编码方式 -->
         <authentication-provider>
-            <jdbc-user-service data-source-ref="mainDataSource"/>
-            <password-encoder ref="pwdEncoder" />
+            <jdbc-user-service data-source-ref="securityDataSource"/>
+            <password-encoder ref="passwordEncoder" />
         </authentication-provider>
     </authentication-manager>
     <!-- 配置密码为BCrypt算法哈希存储，如需明文存储可更换为NoOpPasswordEncoder -->
-    <b:bean id="pwdEncoder"
+    <b:bean id="passwordEncoder"
         class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 </b:beans>
 
